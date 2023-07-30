@@ -2,36 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weathe App</title>
-    <link rel="stylesheet" href="styels.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Weather App</title>
 </head>
 
 <body>
     <div class="container">
-        <h1>Weather app</h1>
-        <form>
-            <input type="text" placeholder="Enter City">
-            <input type="submit" id="button">
-        </form>
-        <ul class="current-info">
-            <li class="day">Monday</li>
-            <li class="time">12:15 PM</li>
-            <li class="temp">102 ℉</li>
-        </ul>
-        <div class="future-forcast">
-            <ul class="days">
-                <li class="Tuesday">Tue</li>
-                <li class="Wednesday">Wed</li>
-                <li class="Thursday">Thu</li>
-                <li class="Friday">Fri</li>
-                <li class="Saturday">Sat</li>
-                <li class="Sunday">Sun</li>
-            </ul>
+        <div class="place"></div>
+        <div class="current-info" id="current-date">
+            <div class="date-container">
+                <div class="time" id="time"></div>
+                <div class="date" id="date"></div>
+            </div>
         </div>
+        <form id="search">
+            <input type="text" id="cityInput" placeholder="Enter City Name" />
+            <button type="submit">Search</button>
+            <button type="button" id="currentButton">Current</button> <!-- Added Current button -->
+        </form>
     </div>
-    <link rel="stylesheet" href="app.js">
+    <div class="link"><a href="https://github.com/MaciaSteinloski/Final-Weather-App.git" target="_blank">Open-Souce
+            Code</a> by
+        Macia
+        Steinloski</div>
+    <script src="app.js"></script>
 </body>
 
 </html>
