@@ -10,17 +10,25 @@
 
 <body>
     <div class="container">
-        <div class="place"></div>
+        <div class="place">Austin</div>
         <div class="current-info" id="current-date">
             <div class="date-container">
-                <div class="time" id="time"></div>
-                <div class="date" id="date"></div>
+                <div class="time" id="time">12:15 <span id="AM/PM">PM</span></div>
+                <div class="date" id="date">Wednesday, Augest 2</div>
+            </div>
+            <div class="current-info" id="current-temp">
+                <div class="temp">90°
+                    <a href="" id="Celcius"> C</a>|
+                    <a href="" id="Fahrenheit">F</a>
+                </div>
+                <div class="description">Mostly Sunny</div>
+                <div class="Wind">Wind: 7mph</div>
             </div>
         </div>
         <form id="search">
             <input type="text" id="cityInput" placeholder="Enter City Name" />
             <button type="submit">Search</button>
-            <button type="button" id="currentButton">Current</button> <!-- Added Current button -->
+            <button type="button" id="currentButton">Current</button>
         </form>
     </div>
     <div class="link"><a href="https://github.com/MaciaSteinloski/Final-Weather-App.git" target="_blank">Open-Souce
