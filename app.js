@@ -3,9 +3,13 @@ function displayTemperature(response) {
   let descriptionElement = document.querySelector("#description");
   let cityElement = document.querySelector("#City");
   let temperatureElement = document.querySelector("#temperature");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
 let apiKey = "f46c19b5eb0ec976086ee480b8b6da29";
