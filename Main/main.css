@@ -1,0 +1,14 @@
+body {
+  background-color: skyblue;
+}
+.app {
+  border: 1px solid gray;
+  margin: auto;
+  width: 40%;
+  text-align: center;
+  background-color: white;
+}
+.author h6 {
+  text-align: left;
+  margin-bottom: 0px;
+}
