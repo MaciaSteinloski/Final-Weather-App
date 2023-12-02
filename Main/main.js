@@ -4,7 +4,7 @@ const apiUrl =
 
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
-const todaysWeather = document.querySelector("todaysWeather");
+const todaysWeather = document.querySelector(".todaysWeather");
 
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city + `&appid=${apikey}`);
@@ -28,6 +28,8 @@ async function checkWeather(city) {
     todaysWeather.src = "Images/clearSun.png";
   } else if (data.weather[0].main == "Drizzle") {
     todaysWeather.src = "Images/drizzle.png";
+  } else if (data.weather[0].main == "Mist") {
+    todaysWeather.src = "Images/fog.png";
   }
 }
 

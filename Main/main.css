@@ -63,7 +63,12 @@ body {
   margin-top: -6px;
   margin-bottom: -6px;
 }
-.author h6 {
+footer {
   text-align: left;
   margin-bottom: 0px;
+  font-size: 12px;
+}
+footer h6 {
+  font-size: 16px;
+  margin-bottom: 8px;
 }
