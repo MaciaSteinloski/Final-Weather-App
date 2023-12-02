@@ -37,19 +37,9 @@ body {
   height: 40px;
   cursor: pointer;
 }
-.weatherInfo {
-  font-size: 15px;
-}
 .todaysWeather {
   width: 170px;
   margin-top: 30px;
-}
-.weatherImg {
-  width: 20px;
-}
-.author h6 {
-  text-align: left;
-  margin-bottom: 0px;
 }
 .details {
   display: flex;
@@ -57,4 +47,23 @@ body {
   justify-content: space-between;
   padding: 0 20px;
   margin-top: 50px;
+}
+.col {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.col img {
+  width: 40px;
+  margin-right: 10px;
+}
+.humidity,
+.wind {
+  font-size: 28px;
+  margin-top: -6px;
+  margin-bottom: -6px;
+}
+.author h6 {
+  text-align: left;
+  margin-bottom: 0px;
 }
