@@ -37,6 +37,8 @@ async function checkWeather(city) {
       todaysWeather.src = "images/drizzle.png";
     } else if (data.weather[0].main == "Mist") {
       todaysWeather.src = "images/fog.png";
+    } else if (data.weather[0].main == "Broken Clouds") {
+      todaysWeather.src = "images/clouds.png";
     }
 
     document.querySelector(".weatherInfo").style.display = "block";
