@@ -2,7 +2,7 @@ const apikey = "42cf1d7df46cc75fc9aef42b03f02592";
 const apiUrl =
   "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
 
-let units = "metric"; // Default to Celsius
+let units = "metric";
 
 async function checkWeather(city) {
   const response = await fetch(
@@ -72,7 +72,6 @@ document.querySelector(".search button").addEventListener("click", () => {
   checkWeather(city);
 });
 
-// Add this link for toggling units
 document
   .querySelector("footer")
   .insertAdjacentHTML(
