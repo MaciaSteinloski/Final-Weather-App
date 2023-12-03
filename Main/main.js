@@ -15,11 +15,15 @@ async function checkWeather(city) {
   } else {
     var data = await response.json();
 
+    updateWeatherInfo(data);
+
     document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temp").innerHTML =
       Math.round(data.main.temp) + " °C";
     document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
     document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
+    document.querySelector(".description p").innerHTML =
+      data.weather[0].description;
 
     if (data.weather[0].main == "Clouds") {
       todaysWeather.src = "Images/clouds.png";
@@ -38,6 +42,27 @@ async function checkWeather(city) {
     document.querySelector(".weatherInfo").style.display = "block";
     document.querySelector(".error").style.display = "none";
   }
+}
+
+function updateWeatherInfo(data) {
+  document.querySelector(".city").innerHTML = data.name;
+  document.querySelector(".temp").innerHTML =
+    Math.round(data.main.temp) + " °C";
+  document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
+  document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
+
+  const currentDate = new Date();
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    timeZoneName: "short",
+  };
+  const formattedDate = currentDate.toLocaleDateString("en-US", options);
+  document.querySelector(".date-time").innerHTML = formattedDate;
 }
 
 searchBtn.addEventListener("click", () => {

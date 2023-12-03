@@ -41,6 +41,12 @@ body {
   width: 170px;
   margin-top: 30px;
 }
+.description p {
+  margin-top: 6px;
+}
+.weatherInfo .city {
+  margin-bottom: 10px;
+}
 .details {
   display: flex;
   align-items: center;
