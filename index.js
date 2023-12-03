@@ -90,6 +90,7 @@ document
 
 function toggleUnits() {
   units = units === "metric" ? "imperial" : "metric";
+  console.log("Units toggled to:", units);
   const city = document.querySelector(".city").innerHTML;
   checkWeather(city);
 }
