@@ -11,11 +11,14 @@
 <body>
     <div class="app">
         <h1>Weather App</h1>
+        <div class="search">
+            <input type="text" placeholder="City Name" spellcheck="false">
+            <button>Search</button>
+        </div>
+        <div class="error">
+            <p>Invalid City Name</p>
+        </div>
         <div class="weatherInfo">
-            <div class="search">
-                <input type="text" placeholder="City Name" spellcheck="false">
-                <button>Search</button>
-            </div>
             <h1 class="city"></h1>
             <img src="" class="todaysWeather">
             <h2 class="temp"></h2>
