@@ -71,8 +71,7 @@ function updateWeatherInfo(data) {
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
-    timeZone: "UTC", // Add this line to specify the time zone
-  };
+    timeZone: "UTC",
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
   document.querySelector(".date-time").innerHTML = formattedDate;
 }
