@@ -25,24 +25,27 @@ async function checkWeather(city) {
     document.querySelector(".description p").innerHTML =
       data.weather[0].description;
 
-    if (data.weather[0].main == "Clouds") {
-      todaysWeather.src = "images/clouds.png";
-    } else if (data.weather[0].main == "Rain") {
-      todaysWeather.src = "images/rain.png";
-    } else if (data.weather[0].main == "Sunny") {
-      todaysWeather.src = "images/sun.png";
-    } else if (data.weather[0].main == "Clear") {
-      todaysWeather.src = "images/clearSun.png";
-    } else if (data.weather[0].main == "Drizzle") {
-      todaysWeather.src = "images/drizzle.png";
-    } else if (data.weather[0].main == "Mist") {
-      todaysWeather.src = "images/fog.png";
-    } else if (data.weather[0].main == "Broken Clouds") {
-      todaysWeather.src = "images/clouds.png";
-    }
+    const todaysWeather = document.querySelector(".todaysWeather");
+    if (todaysWeather) {
+      if (data.weather[0].main == "Clouds") {
+        todaysWeather.src = "images/clouds.png";
+      } else if (data.weather[0].main == "Rain") {
+        todaysWeather.src = "images/rain.png";
+      } else if (data.weather[0].main == "Sunny") {
+        todaysWeather.src = "images/sun.png";
+      } else if (data.weather[0].main == "Clear") {
+        todaysWeather.src = "images/clearSun.png";
+      } else if (data.weather[0].main == "Drizzle") {
+        todaysWeather.src = "images/drizzle.png";
+      } else if (data.weather[0].main == "Mist") {
+        todaysWeather.src = "images/fog.png";
+      } else if (data.weather[0].main == "Broken Clouds") {
+        todaysWeather.src = "images/clouds.png";
+      }
 
-    document.querySelector(".weatherInfo").style.display = "block";
-    document.querySelector(".error").style.display = "none";
+      document.querySelector(".weatherInfo").style.display = "block";
+      document.querySelector(".error").style.display = "none";
+    }
   }
 }
 
