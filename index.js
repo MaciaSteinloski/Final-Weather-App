@@ -51,8 +51,11 @@ async function checkWeather(city) {
 
 function updateWeatherInfo(data) {
   document.querySelector(".city").innerHTML = data.name;
+
+  const temperature =
+    units === "metric" ? data.main.temp : (data.main.temp * 9) / 5 + 32;
   document.querySelector(".temp").innerHTML =
-    Math.round(data.main.temp) + (units === "metric" ? " °C" : " °F");
+    Math.round(temperature) + (units === "metric" ? " °C" : " °F");
   document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
   document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
 
