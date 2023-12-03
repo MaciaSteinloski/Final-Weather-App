@@ -2,12 +2,12 @@ const apikey = "42cf1d7df46cc75fc9aef42b03f02592";
 const apiUrl =
   "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
 
-const searchBox = document.querySelector(".search input");
-const searchBtn = document.querySelector(".search button");
-const todaysWeather = document.querySelector(".todaysWeather");
+let units = "metric"; // Default to Celsius
 
 async function checkWeather(city) {
-  const response = await fetch(apiUrl + city + `&appid=${apikey}`);
+  const response = await fetch(
+    `${apiUrl}${city}&appid=${apikey}&units=${units}`
+  );
 
   if (response.status == 404) {
     document.querySelector(".error").style.display = "block";
@@ -19,7 +19,7 @@ async function checkWeather(city) {
 
     document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temp").innerHTML =
-      Math.round(data.main.temp) + " °C";
+      Math.round(data.main.temp) + (units === "metric" ? " °C" : " °F");
     document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
     document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
     document.querySelector(".description p").innerHTML =
@@ -49,7 +49,7 @@ async function checkWeather(city) {
 function updateWeatherInfo(data) {
   document.querySelector(".city").innerHTML = data.name;
   document.querySelector(".temp").innerHTML =
-    Math.round(data.main.temp) + " °C";
+    Math.round(data.main.temp) + (units === "metric" ? " °C" : " °F");
   document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
   document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
 
@@ -67,6 +67,21 @@ function updateWeatherInfo(data) {
   document.querySelector(".date-time").innerHTML = formattedDate;
 }
 
-searchBtn.addEventListener("click", () => {
-  checkWeather(searchBox.value);
+document.querySelector(".search button").addEventListener("click", () => {
+  const city = document.querySelector(".search input").value;
+  checkWeather(city);
 });
+
+// Add this link for toggling units
+document
+  .querySelector("footer")
+  .insertAdjacentHTML(
+    "beforeend",
+    '<a href="#" onclick="toggleUnits();">Toggle Units</a>'
+  );
+
+function toggleUnits() {
+  units = units === "metric" ? "imperial" : "metric";
+  const city = document.querySelector(".city").innerHTML;
+  checkWeather(city);
+}
