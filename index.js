@@ -14,6 +14,7 @@ async function checkWeather(city) {
     document.querySelector(".todaysWeather").style.display = "none";
   } else {
     var data = await response.json();
+    console.log("API Response:", data);
 
     updateWeatherInfo(data);
 
@@ -27,6 +28,8 @@ async function checkWeather(city) {
 
     const todaysWeather = document.querySelector(".todaysWeather");
     if (todaysWeather) {
+      console.log("Weather condition:", data.weather[0].main);
+
       if (data.weather[0].main == "Clouds") {
         todaysWeather.src = "images/clouds.png";
       } else if (data.weather[0].main == "Rain") {
