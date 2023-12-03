@@ -89,6 +89,7 @@ document
   );
 
 function toggleUnits() {
+  console.log("Toggle Units function called");
   units = units === "metric" ? "imperial" : "metric";
   console.log("Units toggled to:", units);
   const city = document.querySelector(".city").innerHTML;
