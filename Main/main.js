@@ -8,28 +8,35 @@ const todaysWeather = document.querySelector(".todaysWeather");
 
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city + `&appid=${apikey}`);
-  var data = await response.json();
 
-  console.log(data);
+  if (response.status == 404) {
+    document.querySelector(".error").style.display = "block";
+    document.querySelector(".todaysWeather").style.display = "none";
+  } else {
+    var data = await response.json();
 
-  document.querySelector(".city").innerHTML = data.name;
-  document.querySelector(".temp").innerHTML =
-    Math.round(data.main.temp) + " °C";
-  document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
-  document.querySelector(".wind").innerHTML = data.main.wind.speed + " mph";
+    document.querySelector(".city").innerHTML = data.name;
+    document.querySelector(".temp").innerHTML =
+      Math.round(data.main.temp) + " °C";
+    document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
+    document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
 
-  if (data.weather[0].main == "Clouds") {
-    todaysWeather.src = "Images/clouds.png";
-  } else if (data.weather[0].main == "Rain") {
-    todaysWeather.src = "Images/rain.png";
-  } else if (data.weather[0].main == "Sunny") {
-    todaysWeather.src = "Images/sun.png";
-  } else if (data.weather[0].main == "Clear") {
-    todaysWeather.src = "Images/clearSun.png";
-  } else if (data.weather[0].main == "Drizzle") {
-    todaysWeather.src = "Images/drizzle.png";
-  } else if (data.weather[0].main == "Mist") {
-    todaysWeather.src = "Images/fog.png";
+    if (data.weather[0].main == "Clouds") {
+      todaysWeather.src = "Images/clouds.png";
+    } else if (data.weather[0].main == "Rain") {
+      todaysWeather.src = "Images/rain.png";
+    } else if (data.weather[0].main == "Sunny") {
+      todaysWeather.src = "Images/sun.png";
+    } else if (data.weather[0].main == "Clear") {
+      todaysWeather.src = "Images/clearSun.png";
+    } else if (data.weather[0].main == "Drizzle") {
+      todaysWeather.src = "Images/drizzle.png";
+    } else if (data.weather[0].main == "Mist") {
+      todaysWeather.src = "Images/fog.png";
+    }
+
+    document.querySelector(".weatherInfo").style.display = "block";
+    document.querySelector(".error").style.display = "none";
   }
 }
 
