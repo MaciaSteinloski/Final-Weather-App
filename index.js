@@ -57,9 +57,16 @@ function updateWeatherInfo(data) {
 
   const temperature =
     units === "metric" ? data.main.temp : (data.main.temp * 9) / 5 + 32;
-  console.log("Updated Temperature:", temperature);
+  console.log("Temperature before rounding:", temperature); 
+  const roundedTemperature = Math.round(temperature);
+  console.log("Rounded Temperature:", roundedTemperature); 
+  console.log("Units:", units); 
+  console.log("HTML Element:", document.querySelector(".temp").innerHTML); 
   document.querySelector(".temp").innerHTML =
-    Math.round(temperature) + (units === "metric" ? " °C" : " °F");
+    roundedTemperature + (units === "metric" ? " °C" : " °F");
+  console.log(
+    "Updated HTML Element:",
+    document.querySelector(".temp").innerHTML
   document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
   document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
 
@@ -71,7 +78,7 @@ function updateWeatherInfo(data) {
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
-    timeZoneName: "short",
+    timeZoneName: " short",
   };
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
   document.querySelector(".date-time").innerHTML = formattedDate;
