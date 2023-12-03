@@ -57,6 +57,7 @@ function updateWeatherInfo(data) {
 
   const temperature =
     units === "metric" ? data.main.temp : (data.main.temp * 9) / 5 + 32;
+  console.log("Updated Temperature:", temperature);
   document.querySelector(".temp").innerHTML =
     Math.round(temperature) + (units === "metric" ? " °C" : " °F");
   document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
